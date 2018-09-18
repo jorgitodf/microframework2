@@ -1,10 +1,12 @@
 <?php
 
 use App\Framework\Router\Router;
+use App\Framework\Di\Resolver;
+use App\Framework\Renderer\Renderer;
 
-$router = new Router();
+$app = new App\Framework\App;
+$app->setRenderer(new App\Framework\Renderer\Renderer);
 
-$router->get('/hello', function() {
-   return 'Jorgito';
-});
+require __DIR__ . '/src/router.php';
 
+$app->run();
