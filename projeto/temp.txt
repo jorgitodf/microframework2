@@ -1,0 +1,30 @@
+composer require illuminate/support
+
+https://github.com/schoolofnetcom/php-do-jeito-certo-orm
+https://github.com/schoolofnetcom/php-do-jeito-certo-cms
+
+RoutePlugin.php
+
+composer require aura/router:3.1.0
+https://github.com/auraphp/Aura.Router
+https://packagist.org/packages/aura/router
+
+https://github.com/php-fig/http-message
+
+composer require zendframework/zend-diactoros:1.3.10
+https://github.com/zendframework/zend-diactoros
+https://zendframework.github.io/zend-diactoros/
+
+https://pt.stackoverflow.com/questions/330270/import-ou-require-qs-stringify-dentro-de-script-javascript
+
+https://cdnjs.cloudflare.com/ajax/libs/qs/6.5.2/qs.js
+https://cdnjs.cloudflare.com/ajax/libs/qs/6.5.2/qs.min.js
+log = JSON.stringify(log);
+var qs = require('qs');
+
+import qs from 'qs';
+
+let data = { email: email, password: password };
+data = qs.stringify(data);
+
+axios.post(url, data)

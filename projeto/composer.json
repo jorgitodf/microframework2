@@ -1,0 +1,35 @@
+{
+    "name": "app/microframework",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "jorgitodf",
+            "email": "jspaiva.1977@gmail.com"
+        }
+    ],
+    "repositories": [
+        {
+            "type": "path",
+            "url": "../orm"
+        }
+    ],
+    "require": {
+        "php": ">=5.5.0",
+        "illuminate/support": "^5.7",
+        "erikfig/son-orm": "@dev",
+        "pimple/pimple": "^3.2",
+        "twig/twig": "^2.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\Framework\\": "src/",
+            "App\\": "app/"
+        }
+    },
+    "config": {
+        "process-timeout" : 0
+    },
+    "scripts": {
+        "server": "php -S localhost:8000 -t public"
+    }
+}
