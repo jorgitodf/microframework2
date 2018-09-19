@@ -49,7 +49,7 @@ class __TwigTemplate_aeea397b4eb9b576e7ee7e598a57499c821372a22b54afcc5e1252557bc
     public function getSourceContext()
     {
         return new Twig_Source("<h3>Título: {{ page.title }}</h3> 
-<h3>Texto: {{ page.body }}</h3> 
+<h3>Texto: {{ page.body  }}</h3> 
 
 <p><a href=\"/admin/pages\">Início</a></p>", "pages/view.html.twig", "C:\\xampp\\htdocs\\microframework2\\projeto\\views\\pages\\view.html.twig");
     }

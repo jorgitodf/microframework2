@@ -15,6 +15,6 @@ require __DIR__ . '/src/config.php';
 
 $app->setContainer($container);
 
-require __DIR__ . '/src/router.php';
+require __DIR__ . '/src/routes.php';
  
 $app->run();

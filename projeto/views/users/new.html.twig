@@ -1,8 +1,14 @@
-<h3>Novo Usuário</h3>
+{% extends "layouts/front.html.twig" %}
 
-<form method="post" accept-charset="UTF-8" action="/admin/users/new">
-    <input type="text" name="name" placeholder="Nome">
-    <input type="email" name="email" placeholder="E-mail">
-    <input type="password" name="password" placeholder="Senha">
-    <input type="submit" value="Salvar">
-</form>
+{% block content%}
+
+    <h3>Novo Usuário</h3>
+
+    <form method="post" accept-charset="UTF-8" action="/admin/users/new">
+        <input type="text" name="name" placeholder="Nome">
+        <input type="email" name="email" placeholder="E-mail">
+        <input type="password" name="password" placeholder="Senha">
+        <input type="submit" value="Salvar">
+    </form>
+
+{% endblock %}    

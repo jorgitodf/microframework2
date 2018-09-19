@@ -1,32 +1,37 @@
-<h2>Usuários</h2>
+{% extends "layouts/front.html.twig" %}
 
-<table>
-    <thead>
-        <tr>
-            <th>Nome</th>
-            <th>E-mail</th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-    {% for user in users %}
-        <tr>
-            <td>{{ user.name }}</td>
-            <td>{{ user.email }}</td>
-            <td>
-                <a href="/admin/users/{{user.id}}">Ver</a>
-                <a href="/admin/users/edit/{{user.id}}">Editar</a>
-                <form method="post" action="/admin/users/delete/{{user.id}}" style="display:inline-block">
-                    <input type="submit" value="Apagar">
-                </form>
-            </td>    
-        </tr>
-    {% else %}
-        <tr>
-            <td colspan="3">Nenhum Registro</td>
-        </tr>
-    {% endfor %}    
-    </tbody>    
-</table>
+{% block content%}
+    <h2>Usuários</h2>
 
-<a href="/admin/users/new">Novo Usuário</a>
+    <table>
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>E-mail</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for user in users %}
+            <tr>
+                <td>{{ user.name }}</td>
+                <td>{{ user.email }}</td>
+                <td>
+                    <a href="/admin/users/{{user.id}}">Ver</a>
+                    <a href="/admin/users/edit/{{user.id}}">Editar</a>
+                    <form method="post" action="/admin/users/delete/{{user.id}}" style="display:inline-block">
+                        <input type="submit" value="Apagar">
+                    </form>
+                </td>    
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">Nenhum Registro</td>
+            </tr>
+        {% endfor %}    
+        </tbody>    
+    </table>
+
+    <a href="/admin/users/new">Novo Usuário</a>
+
+{% endblock %}

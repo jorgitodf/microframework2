@@ -1,18 +1,23 @@
 <?php
 
-$app->get('/admin/users', function($params) use ($c) {
+
+
+$app->get('/admin/users', function($params) use ($c, $auth) {
+    $auth();
     $users = $c['model_users'];
     $data = $users->findAll();
     return  $c['view']->render('users/index.html.twig', ['users' => $data]);
  });
  
- $app->get('/admin/users/new', function($params) use ($c) {
+ $app->get('/admin/users/new', function($params) use ($c, $auth) {
+    $auth(); 
     return  $c['view']->render('users/new.html.twig');
  });
-
- $app->post('/admin/users/new', function($params) use ($c) {
+ 
+ $app->post('/admin/users/new', function($params) use ($c, $auth) {
+    $auth(); 
     $password = filter_input(INPUT_POST, 'password');
-
+ 
     if (!$password) {
         header('location: /admin/users/new');
     }
@@ -29,19 +34,22 @@ $app->get('/admin/users', function($params) use ($c) {
     header('location: /admin/users');
  });
 
- $app->get('/admin/users/{id}', function($params) use ($c) { 
+ $app->get('/admin/users/{id}', function($params) use ($c, $auth) { 
+    $auth(); 
     $users = $c['model_users'];
     $data = $users->findFirst($params[1]);
     return  $c['view']->render('users/view.html.twig', ['user' => $data]);
  });
 
- $app->get('/admin/users/edit/{id}', function($params) use ($c) {
+ $app->get('/admin/users/edit/{id}', function($params) use ($c, $auth) {
+    $auth(); 
     $users = $c['model_users'];
     $data = $users->findFirst($params[1]);
     return  $c['view']->render('users/edit.html.twig', ['user' => $data]);
  });
 
- $app->post('/admin/users/edit/{id}', function($params) use ($c) {
+ $app->post('/admin/users/edit/{id}', function($params) use ($c, $auth) {
+    $auth(); 
     $password = filter_input(INPUT_POST, 'password');
 
     $model = $c['model_users'];
@@ -64,6 +72,7 @@ $app->get('/admin/users', function($params) use ($c) {
  });
 
  $app->post('/admin/users/delete/{id}', function($params) use ($c) {
+    $auth(); 
     $model = $c['model_users'];
     $model->id = $params[1];
     $model->delete();

@@ -1,8 +1,14 @@
-<h3>Ediação Usuário</h3>
+{% extends "layouts/front.html.twig" %}
 
-<form method="post" accept-charset="UTF-8" action="/admin/users/edit/{{ user.id }}">
-    <input type="text" name="name" placeholder="Nome" value="{{ user.name }}">
-    <input type="email" name="email" placeholder="E-mail" value="{{ user.email }}">
-    <input type="password" name="password" placeholder="Senha">
-    <input type="submit" value="Salvar">
-</form>
+{% block content%}
+
+    <h3>Edição Usuário</h3>
+
+    <form method="post" accept-charset="UTF-8" action="/admin/users/edit/{{ user.id }}">
+        <input type="text" name="name" placeholder="Nome" value="{{ user.name }}">
+        <input type="email" name="email" placeholder="E-mail" value="{{ user.email }}">
+        <input type="password" name="password" placeholder="Senha">
+        <input type="submit" value="Salvar">
+    </form>
+
+{% endblock %}
