@@ -1,0 +1,32 @@
+<h2>Páginas</h2>
+
+<table>
+    <thead>
+        <tr>
+            <th>Título</th>
+            <th>Texto</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for page in pages %}
+        <tr>
+            <td>{{ page.title }}</td>
+            <td>{{ page.body }}</td>
+            <td>
+                <a href="/admin/pages/{{page.id}}">Ver</a>
+                <a href="/admin/pages/edit/{{page.id}}">Editar</a>
+                <form method="post" action="/admin/pages/delete/{{page.id}}" style="display:inline-block">
+                    <input type="submit" value="Apagar">
+                </form>
+            </td>    
+        </tr>
+    {% else %}
+        <tr>
+            <td colspan="3">Nenhum Registro</td>
+        </tr>
+    {% endfor %}    
+    </tbody>    
+</table>
+
+<a href="/admin/pages/new">Nova Página</a>

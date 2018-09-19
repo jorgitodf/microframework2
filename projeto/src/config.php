@@ -2,6 +2,7 @@
 
 use ErikFig\ORM\Drivers\MysqlPdo;
 use App\Models\Users;
+use App\Models\Pages;
 use Twig_Loader_Filesystem;
 use Twig_Environment;
 use Twig_Extension_Debug;
@@ -24,6 +25,13 @@ $container['pdo'] = function($c) {
 $container['model_users'] = $container->factory(function($c) {
     $driver = new MysqlPdo($c['pdo']);
     $model =  new Users;
+    $model->setDriver($driver);
+    return $model;
+});
+
+$container['model_pages'] = $container->factory(function($c) {
+    $driver = new MysqlPdo($c['pdo']);
+    $model =  new Pages;
     $model->setDriver($driver);
     return $model;
 }); 
